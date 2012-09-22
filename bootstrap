@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+set -e
+##############################################################################
+#                                   WARNING                                  #
+#----------------------------------------------------------------------------#
+#                                                                            #
+# At the moment this clobbers all existing configuration files which are     #
+# part of the repository.                                                    #
+#                                                                            #
+# YOU HAVE BEEN WARNED !                                                     #
+##############################################################################
+
+# Setup ZSH
+source zprezto/runcoms/zshenv
+mkdir -p ${ZDOTDIR}
+rm -f ${ZDOTDIR}/.zprezto
+ln -s zprezto ${ZDOTDIR}/.zprezto
+ln -fs ${ZDOTDIR}/.zprezto/runcoms/zshenv ${HOME}/.zshenv
+for rcfile in zlogin zlogout zpreztorc zprofile zshrc; do
+    ln -fs ${ZDOTDIR}/.zprezto/runcoms/${rcfile} ${ZDOTDIR}/.${rcfile}
+done
