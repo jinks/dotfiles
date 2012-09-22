@@ -14,7 +14,7 @@ set -e
 source zprezto/runcoms/zshenv
 mkdir -p ${ZDOTDIR}
 rm -f ${ZDOTDIR}/.zprezto
-ln -s zprezto ${ZDOTDIR}/.zprezto
+ln -s ${PWD}/zprezto ${ZDOTDIR}/.zprezto
 ln -fs ${ZDOTDIR}/.zprezto/runcoms/zshenv ${HOME}/.zshenv
 for rcfile in zlogin zlogout zpreztorc zprofile zshrc; do
     ln -fs ${ZDOTDIR}/.zprezto/runcoms/${rcfile} ${ZDOTDIR}/.${rcfile}
